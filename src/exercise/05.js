@@ -3,7 +3,7 @@
 
 import * as React from 'react'
 
-function MessagesDisplay({messages}, ref) {
+const MessagesDisplay = React.forwardRef(function MessagesDisplay({messages}, ref) {
   const containerRef = React.useRef()
   React.useLayoutEffect(() => {
     scrollToBottom()
@@ -32,9 +32,7 @@ function MessagesDisplay({messages}, ref) {
       ))}
     </div>
   )
-}
-
-MessagesDisplay = React.forwardRef(MessagesDisplay);
+})
 
 function App() {
   const messageDisplayRef = React.useRef()
